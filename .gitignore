@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+/.idea
+/server/.idea/vcs.xml
+/journal-prompt-service/.eslintcache
+
 # testing
 /coverage
 
@@ -21,6 +25,3 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-/journal-prompt-service/.eslintcache
-.eslintcache
