@@ -1,7 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT ? process.env.PORT : 3000;
 const randomPrompt = require('./prompts-data').randomPrompt
+
+app.use(cors());
 
 app.get('/prompt/', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
