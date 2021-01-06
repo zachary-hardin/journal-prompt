@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div>
-      <h1>Journal Prompt Project ✍🏻</h1>
+      <h1>Journal Prompt Project</h1>
       <p>{prompt.prompt}</p>
 
       <button data-testid={'refreshPrompt'} onClick={retrievePrompt}>Refresh Prompt</button>
