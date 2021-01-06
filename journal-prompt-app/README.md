@@ -2,8 +2,8 @@
 The goal of this app is to sharpen my **React** skills while providing users with the ability to receive a journal prompt.
 
 ## Run Locally
-* Execute: `npm install`
-* Execute: `npm start`
+* `npm install`
+* `npm start`
 
 ## Deploy
 After adding any new changes to `master` execute the following command:
