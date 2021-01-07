@@ -15,12 +15,25 @@ function App() {
     });
   }
 
-  return (
-    <div>
-      <h1>Journal Prompt Project</h1>
-      <p>{prompt.prompt}</p>
+  const promptLoaded = () => {
+    if (prompt.prompt) {
+      return (<p>{prompt.prompt}</p>);
+    }
+  }
 
-      <button data-testid={'refreshPrompt'} onClick={retrievePrompt}>Refresh Prompt</button>
+  return (
+    <div className={'container'}>
+      <h1>Journal Prompt Project</h1>
+
+      <div style={{ height: '5rem' }}>
+        {promptLoaded()}
+      </div>
+
+      <button
+        className={'btn btn-primary'}
+        data-testid={'refreshPrompt'}
+        onClick={retrievePrompt}
+      >Refresh Prompt</button>
     </div>
   );
 }
