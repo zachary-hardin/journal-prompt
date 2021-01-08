@@ -17,7 +17,7 @@ function App() {
 
   const promptLoaded = () => {
     if (prompt.prompt) {
-      return (<p>{prompt.prompt}</p>);
+      return (<p>"{prompt.prompt}"</p>);
     }
   }
 
