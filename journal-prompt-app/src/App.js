@@ -22,10 +22,9 @@ function App() {
   }
 
   return (
-    <div className={'container'}>
-      <h1>Journal Prompt Project</h1>
-
-      <div style={{ height: '5rem' }}>
+    <div className={'container spacer-2'}>
+      <h1>Journal Prompt Project 📝</h1>
+      <div style={{ height: '3rem' }}>
         {promptLoaded()}
       </div>
 
