@@ -1,24 +1,19 @@
-let prompts = [
-  {'prompt': "Places you've enjoyed visiting."},
-  {'prompt': "Things you've done that you previously thought you could never do."},
-  {'prompt': "The people you most admire."},
-  {'prompt': "The people you most admire."},
-  {'prompt': "Your favorite books."},
-  {'prompt': "Your favorite movies."},
-  {'prompt': "Your favorite songs."},
-  {'prompt': "Your top five short term goals."},
-  {'prompt': "Your top five long term goals."},
-  {'prompt': "What scares you?"},
-  {'prompt': "Do you have a plan? Do you need a plan? Have you had a plan fall spectacularly to pieces?"},
-  {'prompt': "What is your take on soul mates?"},
-  {'prompt': "Are you a worrier? Is there a particular worry that you can't shake? How do you cope with worry?"},
-  {'prompt': "Dear Past Me..."},
-  {'prompt': "Dear Future Me..."},
-  {'prompt': "Nobody knows that I..."},
-];
+const csv = require('csv-parser');
+const fs = require('fs');
 
-const randomPrompt = () => {
-  return prompts[Math.floor(Math.random() * prompts.length)];
+const getRandomPrompt = () => {
+  return readFile().then(rows => rows[Math.floor(Math.random() * rows.length)]);
 }
 
-exports.randomPrompt = randomPrompt;
+const readFile = () => {
+  let data = [];
+
+  return new Promise((resolve, reject) => {
+    fs.createReadStream('prompts.csv')
+      .pipe(csv())
+      .on('data', row => data.push(row))
+      .on('end', () => resolve(data));
+  });
+}
+
+exports.getRandomPrompt = getRandomPrompt;

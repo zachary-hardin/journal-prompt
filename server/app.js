@@ -2,13 +2,13 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT ? process.env.PORT : 3000;
-const randomPrompt = require('./prompts-data').randomPrompt
+const readRandomPrompt = require('./prompts-data').getRandomPrompt;
 
 app.use(cors());
 
 app.get('/prompt/', (req, res) => {
   res.setHeader('Content-Type', 'application/json');
-  res.end(JSON.stringify(randomPrompt()));
+  readRandomPrompt().then(data => res.end(JSON.stringify(data)));
 });
 
 app.listen(port, () => {

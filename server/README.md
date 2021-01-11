@@ -6,7 +6,7 @@ This api is built using **node.js** and **Express**. It's deployed using [Heroku
 
 ## Run Locally
 * Execute `npm install`
-* Execute `npm run`
+* Execute `npm start`
 
 ## Heroku Deploying
 
