@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const getRandomPrompt = () => {
   return readFile().then(rows => rows[Math.floor(Math.random() * rows.length)]);
-}
+};
 
 const readFile = () => {
   let data = [];
@@ -14,6 +14,6 @@ const readFile = () => {
       .on('data', row => data.push(row))
       .on('end', () => resolve(data));
   });
-}
+};
 
 exports.getRandomPrompt = getRandomPrompt;
