@@ -7,7 +7,7 @@ const { MongoClient } = require('mongodb');
 const fetchAll = (callback) => {
   const URI = process.env.MONGOLAB_URI;
 
-  MongoClient.connect(URI, { useUnifiedTopology: true}, (err, client) => {
+  MongoClient.connect(URI, { useUnifiedTopology: true }, (err, client) => {
     if (err) throw err;
 
     client.db('journal').collection('prompts').find().toArray((err, result) => {
@@ -17,4 +17,19 @@ const fetchAll = (callback) => {
   });
 };
 
+const createNew = (newPrompt) => {
+  const URI = process.env.MONGOLAB_URI;
+
+  MongoClient.connect(URI, { useUnifiedTopology: true }, (err, client) => {
+    if (err) throw err;
+
+    client.db('journal').collection('prompts').insertOne(newPrompt)
+      .then((result) => {
+        console.log(`New prompt created with the following id: ${result.insertedId}`);
+      })
+      .finally(() => client.close());
+  });
+}
+
 exports.fetchAll = fetchAll;
+exports.createNew = createNew;

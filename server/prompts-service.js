@@ -1,4 +1,5 @@
 const fetchAll = require('./prompts-db-service').fetchAll;
+const createNew = require('./prompts-db-service').createNew;
 
 const getRandomPrompt = () => {
   return new Promise((resolve) => {
@@ -9,4 +10,9 @@ const getRandomPrompt = () => {
   });
 };
 
+const createNewPrompt = (prompt) => {
+    createNew(prompt);
+}
+
 exports.getRandomPrompt = getRandomPrompt;
+exports.createNewPrompt = createNewPrompt;
