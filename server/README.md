@@ -10,6 +10,10 @@ This api is built using **node.js** and **Express**. It's deployed using [Heroku
 
 ## Heroku Deploying
 
+* First, we need to set up your local environment. Heroku needs access to MongoDB. Open your terminal, and execute the following command:
+  * `export MONGOLAB_URI="mongodb+srv://<mongodb-user>:<mongodb-password>@promptcluster.yywmq.mongodb.net/journal?retryWrites=true&w=majority"`
+  * *Psst... Make sure to replace `<mongodb>` and `<mongodb-password>` with your MongoDB user credentials.*
+
 * Login to Heroku via your Terminal: `heroku login`
 
 * Deploy new changes to Heroku using Git:
