@@ -1,4 +1,5 @@
 import React from 'react';
+import { insertPrompt } from '../services/PromptService';
 
 function Admin() {
   return (
@@ -7,7 +8,7 @@ function Admin() {
 
       <form className={''}>
         <div className={'form-group'}>
-          <label for={'promptInput'}>Enter a prompt</label>
+          <label htmlFor={'promptInput'}>Enter a prompt</label>
           <div className={'form-row'}>
             <input
               id={'promptInput'}
