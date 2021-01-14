@@ -13,8 +13,10 @@ app.get('/prompt/', (req, res) => {
 });
 
 app.post('/new-prompt', (req, res) => {
-  createNewPrompt(req.query);
-  res.end();
+  createNewPrompt(req.query).then(statusCode => {
+    res.status(statusCode);
+    res.end();
+  });
 });
 
 app.listen(port, () => {
