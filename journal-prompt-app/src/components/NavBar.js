@@ -6,6 +6,7 @@ import {
   Switch
 } from "react-router-dom";
 import Prompter from './Prompter';
+import Admin from './Admin';
 
 function NavBar() {
   const PROMPT_GENERATOR_LINK = '/journal-prompt/';
@@ -40,7 +41,7 @@ function NavBar() {
             <Prompter />
           </Route>
           <Route path={ADMIN_LINK}>
-            <p className={'container spacer-2'}>🚧 Admin Under Construction 🚧</p>
+            <Admin />
           </Route>
         </Switch>
       </div>
