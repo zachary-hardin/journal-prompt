@@ -23,12 +23,12 @@ function Prompter() {
   return (
     <div className={'container spacer-2'}>
       <h1>Prompt Generator</h1>
-      <div style={{ height: '3rem' }}>
+      <div style={{ height: '4em' }}>
         {promptLoaded()}
       </div>
 
       <button
-        className={'btn btn-primary'}
+        className={'btn btn-primary col-lg-2 col-md-3 col-sm-12 mt-1'}
         data-testid={'refreshPrompt'}
         onClick={retrievePrompt}
       >Refresh Prompt</button>

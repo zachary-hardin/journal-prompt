@@ -26,7 +26,7 @@ function NavBar() {
                     to={PROMPT_GENERATOR_LINK}
                     className={'nav-link mr-sm-2'}
                     data-testid={'promptGeneratorNav'}
-                  >Prompt Generator</Link>
+                  >Prompter</Link>
                 </li>
                 <li className="nav-item active">
                   <Link

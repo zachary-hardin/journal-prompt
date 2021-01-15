@@ -37,7 +37,7 @@ function Admin() {
           <label>Enter a prompt</label>
           <div className={'form-row'}>
             <input
-              className={'form-control col-md-10 mr-3'}
+              className={'form-control col-md-10 col-sm-12 m-1'}
               type="text"
               placeholder={'Ex: What\'s your favorite outdoor activity?'}
               data-testid={'promptInput'}
@@ -47,7 +47,7 @@ function Admin() {
               }}
             />
             <button
-              className={'btn btn-primary col-md-1'}
+              className={'btn btn-primary col-md-1 col-sm-12 m-1'}
               type={'button'}
               data-testid={'addPromptBtn'}
               disabled={isInputBlank()}
