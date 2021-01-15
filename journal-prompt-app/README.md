@@ -10,4 +10,4 @@ After adding any new changes to `master` execute the following command:
 * `npm run deploy`
 
 The hosting link can be found within the `package.json` under `"homepage"`
-* http://zachary-hardin.github.io/journal-prompt
+* https://zachary-hardin.github.io/#/journal-prompt/
