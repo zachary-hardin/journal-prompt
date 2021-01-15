@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.fe1c08ce.chunk.css",
-    "main.js": "/static/js/main.17c2f75b.chunk.js",
-    "main.js.map": "/static/js/main.17c2f75b.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.4b665796.js",
-    "runtime-main.js.map": "/static/js/runtime-main.4b665796.js.map",
-    "static/css/2.1f208231.chunk.css": "/static/css/2.1f208231.chunk.css",
-    "static/js/2.ca2c49cd.chunk.js": "/static/js/2.ca2c49cd.chunk.js",
-    "static/js/2.ca2c49cd.chunk.js.map": "/static/js/2.ca2c49cd.chunk.js.map",
-    "static/js/3.fd2f09a9.chunk.js": "/static/js/3.fd2f09a9.chunk.js",
-    "static/js/3.fd2f09a9.chunk.js.map": "/static/js/3.fd2f09a9.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/2.1f208231.chunk.css.map": "/static/css/2.1f208231.chunk.css.map",
-    "static/css/main.fe1c08ce.chunk.css.map": "/static/css/main.fe1c08ce.chunk.css.map",
-    "static/js/2.ca2c49cd.chunk.js.LICENSE.txt": "/static/js/2.ca2c49cd.chunk.js.LICENSE.txt"
+    "main.css": "/journal-prompt/static/css/main.fe1c08ce.chunk.css",
+    "main.js": "/journal-prompt/static/js/main.a565fb51.chunk.js",
+    "main.js.map": "/journal-prompt/static/js/main.a565fb51.chunk.js.map",
+    "runtime-main.js": "/journal-prompt/static/js/runtime-main.c31b9874.js",
+    "runtime-main.js.map": "/journal-prompt/static/js/runtime-main.c31b9874.js.map",
+    "static/css/2.1f208231.chunk.css": "/journal-prompt/static/css/2.1f208231.chunk.css",
+    "static/js/2.ca2c49cd.chunk.js": "/journal-prompt/static/js/2.ca2c49cd.chunk.js",
+    "static/js/2.ca2c49cd.chunk.js.map": "/journal-prompt/static/js/2.ca2c49cd.chunk.js.map",
+    "static/js/3.fd2f09a9.chunk.js": "/journal-prompt/static/js/3.fd2f09a9.chunk.js",
+    "static/js/3.fd2f09a9.chunk.js.map": "/journal-prompt/static/js/3.fd2f09a9.chunk.js.map",
+    "index.html": "/journal-prompt/index.html",
+    "static/css/2.1f208231.chunk.css.map": "/journal-prompt/static/css/2.1f208231.chunk.css.map",
+    "static/css/main.fe1c08ce.chunk.css.map": "/journal-prompt/static/css/main.fe1c08ce.chunk.css.map",
+    "static/js/2.ca2c49cd.chunk.js.LICENSE.txt": "/journal-prompt/static/js/2.ca2c49cd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4b665796.js",
+    "static/js/runtime-main.c31b9874.js",
     "static/css/2.1f208231.chunk.css",
     "static/js/2.ca2c49cd.chunk.js",
     "static/css/main.fe1c08ce.chunk.css",
-    "static/js/main.17c2f75b.chunk.js"
+    "static/js/main.a565fb51.chunk.js"
   ]
 }
