@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
+  HashRouter,
   Link,
   Route,
   Switch
@@ -13,7 +13,7 @@ function NavBar() {
   const ADMIN_LINK = '/admin/';
 
   return (
-    <Router>
+    <HashRouter basename={process.env.PUBLIC_URL}>
       <div>
         <nav className={'navbar sticky-top navbar-expand-lg navbar-dark bg-dark'}>
           <div className={'container'}>
@@ -49,7 +49,7 @@ function NavBar() {
           </Route>
         </Switch>
       </div>
-    </Router>
+    </HashRouter>
   );
 }
 
