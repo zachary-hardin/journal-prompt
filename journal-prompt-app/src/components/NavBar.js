@@ -29,7 +29,11 @@ function NavBar() {
                   >Prompt Generator</Link>
                 </li>
                 <li className="nav-item active">
-                  <Link to={ADMIN_LINK} className={'nav-link mr-sm-2'}>Admin ⚙️</Link>
+                  <Link
+                    to={ADMIN_LINK}
+                    className={'nav-link mr-sm-2'}
+                    data-testid={'adminNav'}
+                  >Admin ⚙️</Link>
                 </li>
               </ul>
             </form>
