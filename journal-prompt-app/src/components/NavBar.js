@@ -9,7 +9,7 @@ import Prompter from './Prompter';
 import Admin from './Admin';
 
 function NavBar() {
-  const PROMPT_GENERATOR_LINK = '/journal-prompt/';
+  const PROMPT_GENERATOR_LINK = '/prompt/';
   const ADMIN_LINK = '/admin/';
 
   return (
