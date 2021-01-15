@@ -5,17 +5,28 @@ function Admin() {
   const [newPrompt, setNewPrompt] = useState('');
   const [addPromptStatus, setAddPromptStatus] = useState(200);
 
-  const notification = () => {
+  const temporaryNotificationMessage = () => {
     if (addPromptStatus === 201) {
       return (
-        <p style={{ color: 'green' }}>New Prompt Added</p>
+        <p>New Prompt Added</p>
       );
     } else if (addPromptStatus === 409) {
       return (
-        <p style={{ color: 'red' }}>Failed to Add New Prompt</p>
+        <p>Failed to Add New Prompt</p>
       );
     }
   };
+
+  const handleClick = () => {
+    insertPrompt(newPrompt).then(response => {
+        setAddPromptStatus(response.status);
+        setNewPrompt('');
+      }).catch(reason => setAddPromptStatus(reason.response.status))
+  };
+
+  const isInputBlank = () => {
+    return newPrompt.trim() === '';
+  }
 
   return (
     <div className={'container spacer-2'}>
@@ -39,24 +50,15 @@ function Admin() {
               className={'btn btn-primary col-md-1'}
               type={'button'}
               data-testid={'addPromptBtn'}
-              disabled={newPrompt.trim() === ''}
-              onClick={() => {
-                insertPrompt(newPrompt)
-                  .then(response => {
-                    setAddPromptStatus(response.status);
-                    setNewPrompt('');
-                  })
-                  .catch((reason) => {
-                    setAddPromptStatus(reason.response.status);
-                  })
-              }}
+              disabled={isInputBlank()}
+              onClick={handleClick}
             >Add
             </button>
           </div>
         </div>
       </form>
 
-      {notification()}
+      {temporaryNotificationMessage()}
     </div>
   );
 }
