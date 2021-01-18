@@ -36,15 +36,15 @@ function NavBar() {
 
             <div className={'collapse navbar-collapse justify-content-end'} id={'navbarTogglerId'}>
               <form className={'form-inline my-2 my-lg-0'}>
-                <ul className={'navbar-nav'}>
-                  <li className={'nav-item active'}>
+                <ul className={'navbar-nav nav-fill w-100'}>
+                  <li className={'nav-item active'} style={{ textAlign: 'left'}}>
                     <Link
                       to={PROMPT_GENERATOR_LINK}
                       className={'nav-link mr-sm-2'}
                       data-testid={'promptGeneratorNav'}
                     >Prompter</Link>
                   </li>
-                  <li className={'nav-item active'}>
+                  <li className={'nav-item active'} style={{ textAlign: 'left'}}>
                     <Link
                       to={ADMIN_LINK}
                       className={'nav-link mr-sm-2'}
