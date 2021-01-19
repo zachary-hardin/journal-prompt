@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { fetchPrompt, insertPrompt } from './PromptService';
+import { fetchPrompt, insertPrompt } from '../../services/PromptService';
 
 jest.mock('axios');
 

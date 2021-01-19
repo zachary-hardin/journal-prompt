@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react';
-import NavBar from './NavBar';
+import NavBar from '../../components/NavBar';
 
-test('prompt generator nav-link should set href to "/journal-prompt/"', () => {
+test('prompt generator nav-link should set href to "/prompt/"', () => {
   const { getByTestId } = render(<NavBar/>);
-  expect(getByTestId('promptGeneratorNav').href).toContain('/journal-prompt/');
+  expect(getByTestId('promptGeneratorNav').href).toContain('/prompt/');
 });
 
 test('admin nav-link should set href to "/journal-prompt/"', () => {

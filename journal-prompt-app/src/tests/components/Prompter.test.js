@@ -1,6 +1,6 @@
 import { render, waitFor } from '@testing-library/react';
 import mockedAxios from 'axios';
-import Prompter from './Prompter';
+import Prompter from '../../components/Prompter';
 
 jest.mock('axios');
 

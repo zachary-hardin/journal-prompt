@@ -1,6 +1,6 @@
 import { fireEvent, render, waitFor, screen } from '@testing-library/react';
 import mockedAxios from 'axios';
-import Admin from './Admin';
+import Admin from '../../components/Admin';
 
 jest.mock('axios');
 
