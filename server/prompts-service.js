@@ -10,6 +10,14 @@ const getRandomPrompt = () => {
   });
 };
 
+const getPrompts = () => {
+  return new Promise(resolve => {
+    fetchAll(prompts => {
+      resolve(prompts);
+    });
+  });
+}
+
 const createNewPrompt = (prompt) => {
   return new Promise(resolve => {
     createNew(prompt, statusCode => resolve(statusCode));
@@ -17,4 +25,5 @@ const createNewPrompt = (prompt) => {
 };
 
 exports.getRandomPrompt = getRandomPrompt;
+exports.getPrompts = getPrompts;
 exports.createNewPrompt = createNewPrompt;
