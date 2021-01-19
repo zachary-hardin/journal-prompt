@@ -1,25 +1,25 @@
 import { fireEvent, render, waitFor, screen } from '@testing-library/react';
 import mockedAxios from 'axios';
-import Admin from '../../components/Admin';
+import NewPromptForm from '../../components/NewPromptForm';
 
 jest.mock('axios');
 
 test('should disable addPromptBtn when input is blank', () => {
-  const { getByTestId } = render(<Admin/>);
+  const { getByTestId } = render(<NewPromptForm/>);
 
   enterTextInto('promptInput', '')
   expect(getByTestId('addPromptBtn')).toBeDisabled();
 });
 
 test('should enable addPromptBrn when input is not blank', () => {
-  const { getByTestId } = render(<Admin/>);
+  const { getByTestId } = render(<NewPromptForm/>);
 
   enterTextInto('promptInput', 'fizzbuzz')
   expect(getByTestId('addPromptBtn')).not.toBeDisabled();
 });
 
 test('should disable addPromptBrn when input is empty spaces', () => {
-  const { getByTestId } = render(<Admin/>);
+  const { getByTestId } = render(<NewPromptForm/>);
 
   enterTextInto('promptInput', '  ')
   expect(getByTestId('addPromptBtn')).toBeDisabled();
@@ -27,7 +27,7 @@ test('should disable addPromptBrn when input is empty spaces', () => {
 
 test('should render success message when inserting new prompt', async () => {
   mockedAxios.post.mockResolvedValueOnce({ status: 201 });
-  const { getByTestId, getByText } = render(<Admin/>);
+  const { getByTestId, getByText } = render(<NewPromptForm/>);
 
   enterTextInto('promptInput', 'fizzbuzz');
   getByTestId('addPromptBtn').click();
@@ -39,7 +39,7 @@ test('should render success message when inserting new prompt', async () => {
 
 test('should render success message when Enter is tapped',  async () => {
   mockedAxios.post.mockResolvedValueOnce({ status: 201 });
-  const { getByText } = render(<Admin/>);
+  const { getByText } = render(<NewPromptForm/>);
 
   enterTextInto('promptInput', 'fizzbuzz');
   pressEnterKeyFor('promptInput');
@@ -50,7 +50,7 @@ test('should render success message when Enter is tapped',  async () => {
 });
 
 test('should not render a message onEnter when promptInput is blank', () => {
-  const { queryByText } = render(<Admin/>);
+  const { queryByText } = render(<NewPromptForm/>);
 
   enterTextInto('promptInput', ' ');
   pressEnterKeyFor('promptInput');
@@ -60,7 +60,7 @@ test('should not render a message onEnter when promptInput is blank', () => {
 
 test('should clear input when message is successfully added', async () => {
   mockedAxios.post.mockResolvedValueOnce({ status: 201 });
-  const { getByTestId } = render(<Admin/>);
+  const { getByTestId } = render(<NewPromptForm/>);
 
   enterTextInto('promptInput', 'fizzbuzz');
   getByTestId('addPromptBtn').click();
@@ -72,7 +72,7 @@ test('should clear input when message is successfully added', async () => {
 
 test('should render failure message when inserting bad prompt', async () => {
   mockedAxios.post.mockResolvedValueOnce({ status: 409 });
-  const { getByTestId, getByText } = render(<Admin/>);
+  const { getByTestId, getByText } = render(<NewPromptForm/>);
 
   enterTextInto('promptInput', 'fizzbuzz')
   getByTestId('addPromptBtn').click();
