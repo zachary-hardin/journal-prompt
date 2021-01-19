@@ -26,7 +26,7 @@ test('should disable addPromptBrn when input is empty spaces', () => {
 });
 
 test('should render success message when inserting new prompt', async () => {
-  mockedAxios.post.mockResolvedValueOnce( { status: 201 });
+  mockedAxios.post.mockResolvedValueOnce({ status: 201 });
   const { getByTestId, getByText } = render(<Admin/>);
 
   enterTextInto('promptInput', 'fizzbuzz');
@@ -37,8 +37,29 @@ test('should render success message when inserting new prompt', async () => {
   });
 });
 
+test('should render success message when Enter is tapped',  async () => {
+  mockedAxios.post.mockResolvedValueOnce({ status: 201 });
+  const { getByText } = render(<Admin/>);
+
+  enterTextInto('promptInput', 'fizzbuzz');
+  pressEnterKeyFor('promptInput');
+
+  await waitFor(() => {
+    expect(getByText('New Prompt Added')).toBeTruthy();
+  });
+});
+
+test('should not render a message onEnter when promptInput is blank', () => {
+  const { queryByText } = render(<Admin/>);
+
+  enterTextInto('promptInput', ' ');
+  pressEnterKeyFor('promptInput');
+
+  expect(queryByText('New Prompt Added')).toBeNull();
+})
+
 test('should clear input when message is successfully added', async () => {
-  mockedAxios.post.mockResolvedValueOnce( { status: 201 });
+  mockedAxios.post.mockResolvedValueOnce({ status: 201 });
   const { getByTestId } = render(<Admin/>);
 
   enterTextInto('promptInput', 'fizzbuzz');
@@ -50,7 +71,7 @@ test('should clear input when message is successfully added', async () => {
 });
 
 test('should render failure message when inserting bad prompt', async () => {
-  mockedAxios.post.mockResolvedValueOnce( { status: 409 });
+  mockedAxios.post.mockResolvedValueOnce({ status: 409 });
   const { getByTestId, getByText } = render(<Admin/>);
 
   enterTextInto('promptInput', 'fizzbuzz')
@@ -64,3 +85,8 @@ test('should render failure message when inserting bad prompt', async () => {
 const enterTextInto = (elementId, text) => {
   fireEvent.change(screen.getByTestId(elementId), { target: { value: text } });
 }
+
+const pressEnterKeyFor = (elementId) => {
+  const ENTER_KEY = { key: 'Enter', code: 13, charCode: 13 };
+  fireEvent.keyPress(screen.getByTestId(elementId), ENTER_KEY);
+};

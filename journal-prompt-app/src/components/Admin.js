@@ -17,22 +17,31 @@ function Admin() {
     }
   };
 
-  const handleClick = () => {
+  const handleSubmit = () => {
     insertPrompt(newPrompt).then(response => {
-        setAddPromptStatus(response.status);
-        setNewPrompt('');
-      }).catch(reason => setAddPromptStatus(reason.response.status))
+      setAddPromptStatus(response.status);
+      setNewPrompt('');
+    }).catch(reason => setAddPromptStatus(reason.response.status))
   };
 
   const isInputBlank = () => {
     return newPrompt.trim() === '';
-  }
+  };
+
+  const handleOnEnter = (event) => {
+    const isEnterKey = event.key === 'Enter';
+
+    if (isEnterKey && !isInputBlank()) {
+      event.preventDefault();
+      handleSubmit();
+    }
+  };
 
   return (
     <div className={'container spacer-2'}>
       <h1>Admin</h1>
 
-      <form>
+      <form onKeyPress={(e) => handleOnEnter(e)}>
         <div className={'form-group'}>
           <label>Enter a prompt</label>
           <div className={'form-row'}>
@@ -51,7 +60,7 @@ function Admin() {
               type={'button'}
               data-testid={'addPromptBtn'}
               disabled={isInputBlank()}
-              onClick={handleClick}
+              onClick={handleSubmit}
             >Add
             </button>
           </div>
