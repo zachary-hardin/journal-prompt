@@ -1,5 +1,6 @@
 const fetchAll = require('./prompts-db-service').fetchAll;
 const createNew = require('./prompts-db-service').createNew;
+const deletePrompt = require('./prompts-db-service').deletePrompt;
 
 const getRandomPrompt = () => {
   return new Promise(resolve => {
@@ -24,6 +25,13 @@ const createNewPrompt = (prompt) => {
   });
 };
 
+const deletePromptById = (id) => {
+  return new Promise(resolve => {
+    deletePrompt(id, statusCode => resolve(statusCode));
+  });
+}
+
 exports.getRandomPrompt = getRandomPrompt;
 exports.getPrompts = getPrompts;
 exports.createNewPrompt = createNewPrompt;
+exports.deletePromptById = deletePromptById;

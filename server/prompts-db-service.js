@@ -1,4 +1,4 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, ObjectId } = require('mongodb');
 
 /*
   This tutorial was very helpful in setting up MongoDB
@@ -40,5 +40,25 @@ const createNew = (newPrompt, callback) => {
   });
 };
 
+const deletePrompt = (prompt, callBack) => {
+  MongoClient.connect(URI, { useUnifiedTopology: true }, (err, client) => {
+    if (err) throw err;
+
+    promptsCollection(client).remove({ _id: ObjectId(prompt._id)})
+      .then((result) => {
+        console.log(`✅ The following prompt was deleted: ${prompt._id}`);
+        callBack(200);
+      })
+      .catch((err) => {
+        console.log(`🆘 Unable to delete the following prompt: ${prompt._id}`);
+        callBack(409);
+      })
+      .finally(() => {
+        client.close();
+      });
+  });
+}
+
 exports.fetchAll = fetchAll;
 exports.createNew = createNew;
+exports.deletePrompt = deletePrompt;

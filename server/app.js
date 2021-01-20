@@ -5,6 +5,7 @@ const port = process.env.PORT ? process.env.PORT : 3000;
 const getRandomPrompt = require('./prompts-service').getRandomPrompt;
 const getPrompts = require('./prompts-service').getPrompts;
 const createNewPrompt = require('./prompts-service').createNewPrompt;
+const deletePromptById = require('./prompts-service').deletePromptById;
 
 app.use(cors());
 
@@ -16,6 +17,13 @@ app.get('/prompt/', (req, res) => {
 app.get('/get-prompts/', (req, res) => {
   res.set('Content-Type', 'application/json');
   getPrompts().then(data => res.end(JSON.stringify(data)));
+});
+
+app.delete('/delete-prompt/', (req, res) => {
+  deletePromptById(req.query).then(statusCode => {
+    res.status(statusCode);
+    res.end();
+  });
 });
 
 app.post('/new-prompt', (req, res) => {
