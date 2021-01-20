@@ -42,24 +42,29 @@ function NewPromptForm() {
       <div className={'form-group'}>
         <label>Enter a prompt</label>
         <div className={'form-row'}>
-          <input
-            className={'form-control col-md-10 col-sm-12 m-1'}
-            type="text"
-            placeholder={'Ex: What\'s your favorite outdoor activity?'}
-            data-testid={'promptInput'}
-            value={newPrompt}
-            onChange={(event) => {
-              setNewPrompt(event.target.value);
-            }}
-          />
-          <button
-            className={'btn btn-primary col-md-1 col-sm-12 m-1'}
-            type={'button'}
-            data-testid={'addPromptBtn'}
-            disabled={isInputBlank()}
-            onClick={handleSubmit}
-          >Add
-          </button>
+          <div className={'col-md-11 col-sm-12'}>
+            <input
+              className={'form-control col-12'}
+              type="text"
+              placeholder={'Ex: What\'s your favorite outdoor activity?'}
+              data-testid={'promptInput'}
+              value={newPrompt}
+              onChange={(event) => {
+                setNewPrompt(event.target.value);
+              }}
+            />
+          </div>
+
+          <div className={'col-md-1 col-sm-12'}>
+            <button
+              className={'btn btn-primary col-12'}
+              type={'button'}
+              data-testid={'addPromptBtn'}
+              disabled={isInputBlank()}
+              onClick={handleSubmit}
+            >Add
+            </button>
+          </div>
         </div>
       </div>
       {temporaryNotificationMessage()}
