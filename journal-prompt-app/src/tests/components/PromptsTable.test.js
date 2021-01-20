@@ -1,6 +1,6 @@
 import { render, waitFor } from '@testing-library/react';
 import mockedAxios from 'axios';
-import Admin from '../../components/Admin';
+import PromptsTable from '../../components/PromptsTable';
 
 jest.mock('axios');
 
@@ -16,7 +16,7 @@ test('should render prompts',  async () => {
     }
   ];
   mockedAxios.get.mockResolvedValueOnce({ data: prompts });
-  const { getByText } = render(<Admin />);
+  const { getByText } = render(<PromptsTable />);
 
   await waitFor(() => {
     expect(getByText('1')).toBeTruthy();
