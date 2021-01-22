@@ -5,14 +5,10 @@ import { deletePrompt, fetchPrompts } from '../services/PromptService';
 function PromptsTable() {
   const [prompts, setPrompts] = useState([]);
 
-  useEffect(() => {
-    loadPrompts();
-  }, []);
+  useEffect(() => loadPrompts(), []);
 
   const loadPrompts = () => {
-    fetchPrompts().then(response => {
-      setPrompts(response.data);
-    });
+    fetchPrompts().then(response => setPrompts(response.data));
   }
 
   const loadRowsWithPrompts = () => {
@@ -24,18 +20,12 @@ function PromptsTable() {
           <td>
             <button
               data-testid={`deletePromptBtn-${index}`}
-              className={'btn btn-light'}
+              className={'btn'}
               onClick={() =>
-                deletePrompt(prompt).then(() => {
-                  console.log('Deleted');
-                  loadPrompts();
-                })
+                deletePrompt(prompt).then(() => loadPrompts())
               }
             >
-              <span
-                className={'fa fa-trash'}
-                style={{ color: '#C70000' }}
-              />
+              <span className={'fa fa-trash'} style={{ color: '#C70000' }}/>
             </button>
           </td>
         </tr>

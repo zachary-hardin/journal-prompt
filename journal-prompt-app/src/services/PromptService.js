@@ -15,5 +15,5 @@ export const insertPrompt = (prompt) => {
 }
 
 export const deletePrompt = (prompt) => {
-  return axios.delete(`${BASE_URL}/delete`, { params: { _id: prompt._id } } );
+  return axios.delete(`${BASE_URL}/delete`, { params: { _id: prompt._id } });
 }
