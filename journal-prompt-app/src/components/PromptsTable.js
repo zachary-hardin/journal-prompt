@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { fetchPrompts } from '../services/PromptService';
+import { deletePrompt, fetchPrompts } from '../services/PromptService';
 
 
 function PromptsTable() {
   const [prompts, setPrompts] = useState([]);
 
   useEffect(() => {
+    loadPrompts();
+  }, []);
+
+  const loadPrompts = () => {
     fetchPrompts().then(response => {
       setPrompts(response.data);
     });
-  }, []);
+  }
 
   const loadRowsWithPrompts = () => {
     return prompts.map((prompt, index) => {
@@ -17,6 +21,23 @@ function PromptsTable() {
         <tr key={index}>
           <th scope="row">{prompt._id}</th>
           <td>{prompt.prompt}</td>
+          <td>
+            <button
+              data-testid={`deletePromptBtn-${index}`}
+              className={'btn btn-light'}
+              onClick={() =>
+                deletePrompt(prompt).then(() => {
+                  console.log('Deleted');
+                  loadPrompts();
+                })
+              }
+            >
+              <span
+                className={'fa fa-trash'}
+                style={{ color: '#C70000' }}
+              />
+            </button>
+          </td>
         </tr>
       );
     });
@@ -25,11 +46,12 @@ function PromptsTable() {
   return (
     <>
       <h2>Prompts</h2>
-      <table className={'table table-hover'}>
+      <table className={'table'}>
         <thead>
         <tr>
           <th scope={'col'}>ID</th>
           <th scope={'col'}>Prompt</th>
+          <th scope={'col'}/>
         </tr>
         </thead>
         <tbody>

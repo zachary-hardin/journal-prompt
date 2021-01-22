@@ -25,9 +25,9 @@ const createNewPrompt = (prompt) => {
   });
 };
 
-const deletePromptById = (id) => {
+const deletePromptById = (query) => {
   return new Promise(resolve => {
-    deletePrompt(id, statusCode => resolve(statusCode));
+    deletePrompt(query, statusCode => resolve(statusCode));
   });
 }
 

@@ -13,3 +13,7 @@ export const fetchPrompts = () => {
 export const insertPrompt = (prompt) => {
   return axios.post(`${BASE_URL}/new-prompt`, null, { params: { prompt } });
 }
+
+export const deletePrompt = (prompt) => {
+  return axios.delete(`${BASE_URL}/delete`, { params: { _id: prompt._id } } );
+}

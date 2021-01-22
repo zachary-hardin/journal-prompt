@@ -44,8 +44,9 @@ const deletePrompt = (prompt, callBack) => {
   MongoClient.connect(URI, { useUnifiedTopology: true }, (err, client) => {
     if (err) throw err;
 
-    promptsCollection(client).remove({ _id: ObjectId(prompt._id)})
-      .then((result) => {
+    let strippedId = removeQuotesFrom(prompt._id)
+    promptsCollection(client).remove({ _id: ObjectId(strippedId) })
+      .then(() => {
         console.log(`✅ The following prompt was deleted: ${prompt._id}`);
         callBack(200);
       })
@@ -57,6 +58,10 @@ const deletePrompt = (prompt, callBack) => {
         client.close();
       });
   });
+}
+
+const removeQuotesFrom = (text) => {
+  return text.replace(/\"/g, '');
 }
 
 exports.fetchAll = fetchAll;

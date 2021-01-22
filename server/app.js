@@ -19,7 +19,7 @@ app.get('/get-prompts/', (req, res) => {
   getPrompts().then(data => res.end(JSON.stringify(data)));
 });
 
-app.delete('/delete-prompt/', (req, res) => {
+app.delete('/delete', (req, res) => {
   deletePromptById(req.query).then(statusCode => {
     res.status(statusCode);
     res.end();
