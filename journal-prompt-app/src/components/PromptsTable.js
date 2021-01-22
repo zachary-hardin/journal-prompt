@@ -4,11 +4,12 @@ import { deletePrompt } from '../services/PromptService';
 
 function PromptsTable(props) {
   const loadRowsWithPrompts = () => {
-    return props.data.map((prompt, index) => {
+
+    return props.data.slice(0).reverse().map((prompt, index) => {
       return (
         <tr key={index}>
-          <th scope="row">{prompt._id}</th>
-          <td>{prompt.prompt}</td>
+          <th scope="row" style={{ verticalAlign: 'middle' }}>{prompt._id}</th>
+          <td style={{ verticalAlign: 'middle' }}>{prompt.prompt}</td>
           <td>
             <button
               data-testid={`deletePromptBtn-${index}`}

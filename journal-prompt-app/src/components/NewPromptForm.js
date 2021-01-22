@@ -68,7 +68,10 @@ function NewPromptForm(props) {
           </div>
         </div>
       </div>
-      {temporaryNotificationMessage()}
+
+      <div style={{ height: '2rem'}}>
+        {temporaryNotificationMessage()}
+      </div>
     </form>
   );
 }
