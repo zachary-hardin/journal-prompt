@@ -6,7 +6,7 @@ jest.mock('axios');
 const PROMPT_API_URL = 'https://thawing-fortress-26537.herokuapp.com/prompt';
 const ALL_PROMPT_API_URL = 'https://thawing-fortress-26537.herokuapp.com/get-prompts';
 const INSERT_PROMPT_API_URL = 'https://thawing-fortress-26537.herokuapp.com/new-prompt';
-const DELETE_PROMPT_API_URL = 'https://thawing-fortress-26537.herokuapp.com/delete-prompt';
+const DELETE_PROMPT_API_URL = 'https://thawing-fortress-26537.herokuapp.com/delete';
 
 test('fetchPrompt should hit the PROMPT_API_URL', () => {
   fetchPrompt();
@@ -58,7 +58,7 @@ test('fetchPrompts should return a list of prompts', (done) => {
 test('deletePrompt should hit the DELETE_PROMPT_URL', () => {
   const prompt = { _id: "1234", prompt: "foo" }
   deletePrompt(prompt);
-  expect(axios.delete).toHaveBeenCalledWith(DELETE_PROMPT_API_URL, null, { "params": { _id: "1234" } })
+  expect(axios.delete).toHaveBeenCalledWith(DELETE_PROMPT_API_URL, { "params": { _id: "1234" } })
 });
 
 test('deletePrompt should return a status code of 201', (done) => {
@@ -66,7 +66,6 @@ test('deletePrompt should return a status code of 201', (done) => {
 
   deletePrompt({ _id: "1234", prompt: "foo" }).then(response => {
     expect(response.status).toEqual(201);
-
     done();
   });
 });
