@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { insertPrompt } from '../services/PromptService';
 
-function NewPromptForm() {
+function NewPromptForm(props) {
   const [newPrompt, setNewPrompt] = useState('');
   const [addPromptStatus, setAddPromptStatus] = useState(200);
 
@@ -21,6 +21,7 @@ function NewPromptForm() {
     insertPrompt(newPrompt).then(response => {
       setAddPromptStatus(response.status);
       setNewPrompt('');
+      props.reloadData();
     }).catch(reason => setAddPromptStatus(reason.response.status))
   };
 

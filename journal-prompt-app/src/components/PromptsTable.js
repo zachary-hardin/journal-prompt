@@ -1,18 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { deletePrompt, fetchPrompts } from '../services/PromptService';
+import React from 'react';
+import { deletePrompt } from '../services/PromptService';
 
 
-function PromptsTable() {
-  const [prompts, setPrompts] = useState([]);
-
-  useEffect(() => loadPrompts(), []);
-
-  const loadPrompts = () => {
-    fetchPrompts().then(response => setPrompts(response.data));
-  }
-
+function PromptsTable(props) {
   const loadRowsWithPrompts = () => {
-    return prompts.map((prompt, index) => {
+    return props.data.map((prompt, index) => {
       return (
         <tr key={index}>
           <th scope="row">{prompt._id}</th>
@@ -22,7 +14,7 @@ function PromptsTable() {
               data-testid={`deletePromptBtn-${index}`}
               className={'btn'}
               onClick={() =>
-                deletePrompt(prompt).then(() => loadPrompts())
+                deletePrompt(prompt).then(() => props.reloadData())
               }
             >
               <span className={'fa fa-trash'} style={{ color: '#C70000' }}/>
