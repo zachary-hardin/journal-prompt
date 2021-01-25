@@ -5,6 +5,7 @@ import { fetchPrompts } from '../services/PromptService';
 
 function Admin() {
   const [prompts, setPrompts] = useState([]);
+  const [isNewItem, setIsNewItem] = useState(false);
 
   useEffect(() => loadPrompts(), []);
 
@@ -17,10 +18,9 @@ function Admin() {
       <h1>Admin</h1>
       <br/>
 
-      <NewPromptForm reloadData={loadPrompts}/>
+      <NewPromptForm reloadData={loadPrompts} setIsNewItem={setIsNewItem}/>
       <br/>
-
-      <PromptsTable data={prompts} reloadData={loadPrompts} />
+      <PromptsTable data={prompts} reloadData={loadPrompts} isNewItem={isNewItem} setIsNewItem={setIsNewItem}/>
     </div>
   );
 }

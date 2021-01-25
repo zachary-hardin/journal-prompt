@@ -1,21 +1,21 @@
 import React from 'react';
 import { deletePrompt } from '../services/PromptService';
 
-
 function PromptsTable(props) {
   const loadRowsWithPrompts = () => {
-
     return props.data.slice(0).reverse().map((prompt, index) => {
       return (
-        <tr key={index}>
-          <th scope="row" style={{ verticalAlign: 'middle' }}>{prompt._id}</th>
+        <tr key={prompt._id} className={ index === 0 && props.isNewItem ? 'animate-new-row' : '' }>
           <td style={{ verticalAlign: 'middle' }}>{prompt.prompt}</td>
-          <td>
+          <td style={{ verticalAlign: 'middle' }}>
             <button
               data-testid={`deletePromptBtn-${index}`}
               className={'btn'}
               onClick={() =>
-                deletePrompt(prompt).then(() => props.reloadData())
+                deletePrompt(prompt).then(() => {
+                  props.setIsNewItem(false);
+                  props.reloadData()
+                })
               }
             >
               <span className={'fa fa-trash'} style={{ color: '#C70000' }}/>
@@ -32,7 +32,6 @@ function PromptsTable(props) {
       <table className={'table'}>
         <thead>
         <tr>
-          <th scope={'col'}>ID</th>
           <th scope={'col'}>Prompt</th>
           <th scope={'col'}/>
         </tr>

@@ -37,9 +37,7 @@ test('should refresh table when delete is clicked',  async () => {
   const { getByText, queryByText } = render(<Admin />);
 
   await waitFor(() => {
-    expect(getByText('1')).toBeTruthy();
     expect(getByText('horse')).toBeTruthy();
-    expect(getByText('2')).toBeTruthy();
     expect(getByText('goat')).toBeTruthy();
   });
 
@@ -57,7 +55,6 @@ test('should refresh table when a new prompt is added', async () => {
 
   const { getByText, queryByText } = render(<Admin />);
 
-  expect(queryByText('3')).toBeNull();
   expect(queryByText('chicken')).toBeNull();
 
   mockedAxios.post.mockResolvedValueOnce({ status: 201 });
@@ -67,7 +64,6 @@ test('should refresh table when a new prompt is added', async () => {
   clickButtonById('addPromptBtn');
 
   await waitFor(() => {
-    expect(getByText('3')).toBeTruthy();
     expect(getByText('chicken')).toBeTruthy();
   });
 });

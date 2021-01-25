@@ -22,6 +22,7 @@ function NewPromptForm(props) {
       setAddPromptStatus(response.status);
       setNewPrompt('');
       props.reloadData();
+      props.setIsNewItem(true);
     }).catch(reason => setAddPromptStatus(reason.response.status))
   };
 
@@ -43,7 +44,7 @@ function NewPromptForm(props) {
       <div className={'form-group'}>
         <label>Enter a prompt</label>
         <div className={'form-row'}>
-          <div className={'col-md-11 col-sm-12'}>
+          <div className={'col-lg-11 col-md-12 col-sm-12 mt-1 mb-1'}>
             <input
               className={'form-control col-12'}
               type="text"
@@ -56,7 +57,7 @@ function NewPromptForm(props) {
             />
           </div>
 
-          <div className={'col-md-1 col-sm-12'}>
+          <div className={'col-lg-1 col-md-12 col-sm-12 mt-1 mt-1'}>
             <button
               className={'btn btn-primary col-12'}
               type={'button'}

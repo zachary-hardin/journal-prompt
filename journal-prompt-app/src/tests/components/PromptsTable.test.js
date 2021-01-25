@@ -13,10 +13,8 @@ test('should render given prompts',  () => {
       _id: '2',
       prompt: 'strawberry'
     }
-  ]} reloadData={() => {}} />);
+  ]} reloadData={() => {}} isNewItem={false} setIsNewItem={() => {}}/>);
 
-    expect(getByText('1')).toBeTruthy();
     expect(getByText('cherry')).toBeTruthy();
-    expect(getByText('2')).toBeTruthy();
     expect(getByText('strawberry')).toBeTruthy();
 });
