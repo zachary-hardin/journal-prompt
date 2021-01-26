@@ -18,7 +18,7 @@ function Admin() {
       <h1>Admin</h1>
       <br/>
 
-      <NewPromptForm reloadData={loadPrompts} setIsNewItem={setIsNewItem}/>
+      <NewPromptForm setIsNewItem={setIsNewItem}/>
       <br/>
       <PromptsTable data={prompts} reloadData={loadPrompts} isNewItem={isNewItem} setIsNewItem={setIsNewItem}/>
     </div>

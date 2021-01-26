@@ -1,7 +1,7 @@
 import { render, waitFor } from '@testing-library/react';
 import mockedAxios from 'axios';
 import NewPromptForm from '../../components/NewPromptForm';
-import { clickButtonById, enterTextInto, pressEnterKeyFor } from '../Helpers';
+import { clickButtonByText, enterTextInto, pressEnterKeyFor } from '../Helpers';
 
 jest.mock('axios');
 
@@ -31,7 +31,7 @@ test('should render success message when inserting new prompt', async () => {
   const { getByText } = render(<NewPromptForm reloadData={() => {}} setIsNewItem={() => {}}/>);
 
   enterTextInto('promptInput', 'fizzbuzz');
-  clickButtonById('addPromptBtn');
+  clickButtonByText('Add');
 
   await waitFor(() => {
     expect(getByText('New Prompt Added')).toBeTruthy();
@@ -64,7 +64,7 @@ test('should clear input when message is successfully added', async () => {
   const { getByTestId } = render(<NewPromptForm reloadData={() => {}} setIsNewItem={() => {}}/>);
 
   enterTextInto('promptInput', 'fizzbuzz');
-  clickButtonById('addPromptBtn');
+  clickButtonByText('Add');
 
   await waitFor(() => {
     expect(getByTestId('promptInput').value).toEqual('');
@@ -76,7 +76,7 @@ test('should render failure message when inserting bad prompt', async () => {
   const { getByText } = render(<NewPromptForm reloadData={() => {}} setIsNewItem={() => {}}/>);
 
   enterTextInto('promptInput', 'fizzbuzz')
-  clickButtonById('addPromptBtn');
+  clickButtonByText('Add');
 
   await waitFor(() => {
     expect(getByText('Failed to Add New Prompt')).toBeTruthy();

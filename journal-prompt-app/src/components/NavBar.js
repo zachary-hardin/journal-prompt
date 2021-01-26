@@ -41,14 +41,12 @@ function NavBar() {
                     <Link
                       to={PROMPT_GENERATOR_LINK}
                       className={'nav-link mr-sm-2'}
-                      data-testid={'promptGeneratorNav'}
                     >Prompter</Link>
                   </li>
                   <li className={'nav-item active'} style={{ textAlign: 'left'}}>
                     <Link
                       to={ADMIN_LINK}
                       className={'nav-link mr-sm-2'}
-                      data-testid={'adminNav'}
                     >Admin ⚙️</Link>
                   </li>
                 </ul>

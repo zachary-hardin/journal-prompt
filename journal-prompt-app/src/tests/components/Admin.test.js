@@ -1,7 +1,7 @@
 import { render, waitFor } from '@testing-library/react';
 import mockedAxios from 'axios';
 import Admin from '../../components/Admin';
-import { clickButtonById, enterTextInto } from '../Helpers';
+import { clickButtonById, clickButtonByText, enterTextInto } from '../Helpers';
 
 jest.mock('axios');
 
@@ -58,10 +58,10 @@ test('should refresh table when a new prompt is added', async () => {
   expect(queryByText('chicken')).toBeNull();
 
   mockedAxios.post.mockResolvedValueOnce({ status: 201 });
-  mockedAxios.get.mockResolvedValueOnce({ data: updatedPrompts });
+  mockedAxios.get.mockResolvedValue({ data: updatedPrompts });
 
   enterTextInto('promptInput', 'chicken');
-  clickButtonById('addPromptBtn');
+  clickButtonByText('Add');
 
   await waitFor(() => {
     expect(getByText('chicken')).toBeTruthy();

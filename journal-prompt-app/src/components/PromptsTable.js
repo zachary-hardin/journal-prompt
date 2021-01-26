@@ -1,13 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { deletePrompt } from '../services/PromptService';
 
 function PromptsTable(props) {
+  useEffect(() => {
+    if (props.isNewItem) {
+      props.reloadData();
+    }
+  });
+
+  const verticalMiddle = {
+    verticalAlign: 'middle'
+  };
+
+  const isFirstRowNew = (index) => {
+    return index === 0 && props.isNewItem;
+  };
+
   const loadRowsWithPrompts = () => {
     return props.data.slice(0).reverse().map((prompt, index) => {
       return (
-        <tr key={prompt._id} className={ index === 0 && props.isNewItem ? 'animate-new-row' : '' }>
-          <td style={{ verticalAlign: 'middle' }}>{prompt.prompt}</td>
-          <td style={{ verticalAlign: 'middle' }}>
+        <tr key={prompt._id} className={ isFirstRowNew(index) ? 'animate-new-row' : '' }>
+          <td style={verticalMiddle}>{prompt.prompt}</td>
+          <td style={verticalMiddle}>
             <button
               data-testid={`deletePromptBtn-${index}`}
               className={'btn'}

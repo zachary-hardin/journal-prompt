@@ -21,7 +21,6 @@ function NewPromptForm(props) {
     insertPrompt(newPrompt).then(response => {
       setAddPromptStatus(response.status);
       setNewPrompt('');
-      props.reloadData();
       props.setIsNewItem(true);
     }).catch(reason => setAddPromptStatus(reason.response.status))
   };

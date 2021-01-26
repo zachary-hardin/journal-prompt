@@ -12,3 +12,7 @@ export const pressEnterKeyFor = (elementId) => {
 export const clickButtonById = (elementId) => {
   screen.getByTestId(elementId).click();
 };
+
+export const clickButtonByText = (elementId) => {
+  screen.getByText(elementId).click();
+};

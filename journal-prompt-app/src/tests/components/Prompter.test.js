@@ -1,7 +1,7 @@
 import { render, waitFor } from '@testing-library/react';
 import mockedAxios from 'axios';
 import Prompter from '../../components/Prompter';
-import { clickButtonById } from '../Helpers';
+import { clickButtonByText } from '../Helpers';
 
 jest.mock('axios');
 
@@ -24,7 +24,7 @@ test('refreshes a prompt with quotations on click', async () => {
 
   await waitFor(() => {
     mockedAxios.get.mockResolvedValueOnce(setPromptTo('fizz'));
-    clickButtonById('refreshPrompt');
+    clickButtonByText('Refresh Prompt');
     expect(getByText('"fizz"')).toBeTruthy();
   });
 });
