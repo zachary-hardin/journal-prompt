@@ -6,6 +6,7 @@
 .pnp.js
 
 /.idea
+/journal-prompt-app/.idea
 /server/.idea/vcs.xml
 /journal-prompt-service/.eslintcache
 

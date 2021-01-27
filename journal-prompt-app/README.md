@@ -11,3 +11,10 @@ After adding any new changes to `master` execute the following command:
 
 The hosting link can be found within the `package.json` under `"homepage"`
 * https://zachary-hardin.github.io/journal-prompt/#/journal-prompt/prompt/
+
+## Run Cypress
+* Execute the following to launch the Cypress app:
+    * `npx cypress open`
+
+* Execute teh following to run tests via command line:
+  * `npx cypress run`
