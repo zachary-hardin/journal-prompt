@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { insertPrompt } from '../services/PromptService';
+import '../styles/general.css';
 
 function NewPromptForm(props) {
   const [newPrompt, setNewPrompt] = useState('');
@@ -58,7 +59,7 @@ function NewPromptForm(props) {
 
           <div className={'col-lg-1 col-md-12 col-sm-12 mt-1 mt-1'}>
             <button
-              className={'btn btn-primary col-12'}
+              className={'btn purple-btn col-12'}
               type={'button'}
               data-testid={'addPromptBtn'}
               disabled={isInputBlank()}

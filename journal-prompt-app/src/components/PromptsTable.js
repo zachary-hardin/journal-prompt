@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { deletePrompt } from '../services/PromptService';
+import '../styles/general.css';
 
 function PromptsTable(props) {
   useEffect(() => {
@@ -42,11 +43,10 @@ function PromptsTable(props) {
 
   return (
     <>
-      <h2>Prompts</h2>
       <table className={'table'}>
         <thead>
         <tr>
-          <th scope={'col'}>Prompt</th>
+          <th scope={'col'}>Prompts</th>
           <th scope={'col'}/>
         </tr>
         </thead>

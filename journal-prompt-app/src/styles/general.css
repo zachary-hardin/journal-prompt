@@ -1,11 +1,12 @@
-button, span, p, a {
+button, span, p, a, h1, label, input[type=text], th, td {
     font-family: 'Questrial', sans-serif;
 }
 
 .purple-btn {
     background-color: #7466D5 !important;
     color: white !important;
-    box-shadow: 2px 1px 5px #888888
+    box-shadow: 2px 1px 5px #888888;
+    font-family: 'Questrial', sans-serif;
 }
 
 .purple-btn:hover {
