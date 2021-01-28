@@ -1,0 +1,20 @@
+.grey-color {
+    color: rgba(86, 86, 86, 0.65) !important;
+}
+
+.font-size-30 {
+    font-size: 30px;
+}
+
+.font-size-20 {
+    font-size: 20px;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+a:hover {
+    color: #FD2F98 !important;
+}
+

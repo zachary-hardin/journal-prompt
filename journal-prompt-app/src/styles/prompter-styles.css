@@ -24,15 +24,12 @@
     width: 75%;
 }
 
-.prompt-font {
-    font-family: 'Questrial', sans-serif;
+.prompt-font-size {
     font-size: 52px;
 }
 
-.purple-btn {
-    background-color: #7466D5 !important;
-    color: white !important;
-    box-shadow: 2px 1px 5px #888888
+.dark-grey {
+    color: #403d3d;
 }
 
 .float-right {

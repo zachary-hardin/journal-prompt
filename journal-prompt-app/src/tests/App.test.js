@@ -3,5 +3,5 @@ import App from '../App';
 
 test('renders the NavBar', () => {
   render(<App />);
-  expect(screen.getByText('Journal Prompt Project')).toBeInTheDocument();
+  expect(screen.getByText('the journal project')).toBeInTheDocument();
 });

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { fetchPrompt } from '../services/PromptService';
 import '../styles/prompter-styles.css';
+import '../styles/general.css';
 
 function Prompter() {
   const [prompt, setPrompt] = useState('');
@@ -24,7 +25,7 @@ function Prompter() {
   return (
     <div>
       <div className={'background-image-fullscreen'}>
-        <div className={'center prompt-font prompt-width'}>
+        <div className={'center prompt-font-size dark-grey prompt-width'}>
           {promptLoaded()}
 
           <button

@@ -1,0 +1,9 @@
+button, span, p, a {
+    font-family: 'Questrial', sans-serif;
+}
+
+.purple-btn {
+    background-color: #7466D5 !important;
+    color: white !important;
+    box-shadow: 2px 1px 5px #888888
+}

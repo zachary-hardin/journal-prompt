@@ -7,6 +7,9 @@ import {
 } from "react-router-dom";
 import Prompter from './Prompter';
 import Admin from './Admin';
+import '../styles/prompter-styles.css';
+import '../styles/general.css';
+import '../styles/nav-styles.css';
 
 function NavBar() {
   const PROMPT_GENERATOR_LINK = '/prompt/';
@@ -21,7 +24,7 @@ function NavBar() {
               aria-controls={'navbarTogglerDemo02'}
               aria-expanded={'false'}
               aria-label={'Toggle navigation'}>
-        <span className={'navbar-toggler-icon'} />
+        <span className={'navbar-toggler-icon'}/>
       </button>
     );
   }
@@ -31,23 +34,23 @@ function NavBar() {
       <div>
         <nav className={'navbar sticky-top navbar-expand-lg navbar-light bg-light'}>
           <div className={'container'}>
-            <span className={'navbar-brand mb-0 h1'}>Journal Prompt Project</span>
+            <span className={'grey-color font-size-30'}>the journal project</span>
             {menuToggleButton()}
 
             <div className={'collapse navbar-collapse justify-content-end'} id={'navbarTogglerId'}>
               <form className={'form-inline my-2 my-lg-0'}>
                 <ul className={'navbar-nav nav-fill w-100'}>
-                  <li className={'nav-item active'} style={{ textAlign: 'left'}}>
+                  <li className={'nav-item active text-align-left'}>
                     <Link
                       to={PROMPT_GENERATOR_LINK}
-                      className={'nav-link mr-sm-2'}
-                    >Prompter</Link>
+                      className={'nav-link mr-sm-2 grey-color font-size-20'}
+                    >prompter</Link>
                   </li>
-                  <li className={'nav-item active'} style={{ textAlign: 'left'}}>
+                  <li className={'nav-item active text-align-left'}>
                     <Link
                       to={ADMIN_LINK}
-                      className={'nav-link mr-sm-2'}
-                    >Admin ⚙️</Link>
+                      className={'nav-link mr-sm-2 grey-color font-size-20'}
+                    >admin</Link>
                   </li>
                 </ul>
               </form>
@@ -57,10 +60,10 @@ function NavBar() {
 
         <Switch>
           <Route path={PROMPT_GENERATOR_LINK}>
-            <Prompter />
+            <Prompter/>
           </Route>
           <Route path={ADMIN_LINK}>
-            <Admin />
+            <Admin/>
           </Route>
         </Switch>
       </div>
