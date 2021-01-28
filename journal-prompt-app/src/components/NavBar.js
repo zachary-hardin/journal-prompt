@@ -34,19 +34,19 @@ function NavBar() {
       <div>
         <nav className={'navbar sticky-top navbar-expand-lg navbar-light bg-light'}>
           <div className={'container'}>
-            <span className={'grey-color font-size-30'}>the journal project</span>
+            <span className={'grey-color font-size-30 disable-select'}>the journal project</span>
             {menuToggleButton()}
 
             <div className={'collapse navbar-collapse justify-content-end'} id={'navbarTogglerId'}>
               <form className={'form-inline my-2 my-lg-0'}>
                 <ul className={'navbar-nav nav-fill w-100'}>
-                  <li className={'nav-item active text-align-left'}>
+                  <li className={'nav-item active text-align-left disable-select'}>
                     <Link
                       to={PROMPT_GENERATOR_LINK}
                       className={'nav-link mr-sm-2 grey-color font-size-20'}
                     >prompter</Link>
                   </li>
-                  <li className={'nav-item active text-align-left'}>
+                  <li className={'nav-item active text-align-left disable-select'}>
                     <Link
                       to={ADMIN_LINK}
                       className={'nav-link mr-sm-2 grey-color font-size-20'}

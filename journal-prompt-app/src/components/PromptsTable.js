@@ -32,7 +32,7 @@ function PromptsTable(props) {
                 })
               }
             >
-              <span className={'fa fa-trash'} style={{ color: '#C70000' }}/>
+              <span className={'fa fa-trash'} style={{ color: '#FD2F98' }}/>
             </button>
           </td>
         </tr>

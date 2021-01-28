@@ -7,3 +7,7 @@ button, span, p, a {
     color: white !important;
     box-shadow: 2px 1px 5px #888888
 }
+
+.purple-btn:hover {
+    background-color: #5b50a7 !important;
+}
