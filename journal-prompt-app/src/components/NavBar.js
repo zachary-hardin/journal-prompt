@@ -29,7 +29,7 @@ function NavBar() {
   return (
     <HashRouter basename={process.env.PUBLIC_URL}>
       <div>
-        <nav className={'navbar sticky-top navbar-expand-lg navbar-dark bg-dark'}>
+        <nav className={'navbar sticky-top navbar-expand-lg navbar-light bg-light'}>
           <div className={'container'}>
             <span className={'navbar-brand mb-0 h1'}>Journal Prompt Project</span>
             {menuToggleButton()}

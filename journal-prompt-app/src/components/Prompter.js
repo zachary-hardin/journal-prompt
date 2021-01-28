@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { fetchPrompt } from '../services/PromptService';
+import '../styles/prompter-styles.css';
 
 function Prompter() {
   const [prompt, setPrompt] = useState('');
@@ -16,21 +17,23 @@ function Prompter() {
 
   const promptLoaded = () => {
     if (prompt.prompt) {
-      return (<p>"{prompt.prompt}"</p>);
+      return (<p className={'center-text'}>"{prompt.prompt}"</p>);
     }
   }
 
   return (
-    <div className={'container spacer-2'}>
-      <h1>Prompt Generator</h1>
-      <div style={{ height: '4em' }}>
-        {promptLoaded()}
-      </div>
+    <div>
+      <div className={'background-image-fullscreen'}>
+        <div className={'center prompt-font prompt-width'}>
+          {promptLoaded()}
 
-      <button
-        className={'btn btn-primary col-lg-2 col-md-3 col-sm-12 mt-1'}
-        onClick={retrievePrompt}
-      >Refresh Prompt</button>
+          <button
+            className={'btn col-lg-2 col-md-3 col-sm-12 purple-btn float-right'}
+            onClick={retrievePrompt}
+          >refresh
+          </button>
+        </div>
+      </div>
     </div>
   );
 }

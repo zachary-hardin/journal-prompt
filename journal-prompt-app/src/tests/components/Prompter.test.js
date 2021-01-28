@@ -24,7 +24,7 @@ test('refreshes a prompt with quotations on click', async () => {
 
   await waitFor(() => {
     mockedAxios.get.mockResolvedValueOnce(setPromptTo('fizz'));
-    clickButtonByText('Refresh Prompt');
+    clickButtonByText('refresh');
     expect(getByText('"fizz"')).toBeTruthy();
   });
 });
