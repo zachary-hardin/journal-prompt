@@ -36,12 +36,50 @@
     float: right;
 }
 
+.min-height {
+    min-height: 12rem;
+}
+
+.center-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @media only screen and (max-width: 600px) {
     .prompt-width {
         width: 90%;
     }
 
-    .prompt-font {
+    .background-image-fullscreen {
+        height: 95vh;
+    }
+
+    .prompt-font-size {
         font-size: 42px;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .center-content {
+        min-height: 10rem;
+    }
+
+    .background-image-fullscreen {
+        height: 92vh;
+    }
+
+    .prompt-width {
+        width: 95%;
+    }
+
+    .prompt-font-size {
+        font-size: 32px;
+    }
+}
+
+@media only screen and (max-width: 350px) {
+    .background-image-fullscreen {
+        height: 95vh;
     }
 }

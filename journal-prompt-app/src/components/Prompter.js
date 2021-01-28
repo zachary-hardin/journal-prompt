@@ -26,7 +26,9 @@ function Prompter() {
     <div>
       <div className={'background-image-fullscreen'}>
         <div className={'center prompt-font-size dark-grey prompt-width'}>
-          {promptLoaded()}
+          <div className={'center-content min-height'}>
+            {promptLoaded()}
+          </div>
 
           <button
             className={'btn col-lg-2 col-md-3 col-sm-12 purple-btn float-right'}
