@@ -2,6 +2,10 @@ button, span, p, a, h1, label, input[type=text], th, td {
     font-family: 'Questrial', sans-serif;
 }
 
+input::placeholder {
+    color: #A5A4A4 !important;
+}
+
 .purple-btn {
     background-color: #7466D5 !important;
     color: white !important;

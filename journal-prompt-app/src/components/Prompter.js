@@ -23,7 +23,7 @@ function Prompter() {
   }
 
   return (
-    <div>
+    <div className={'container'}>
       <div className={'background-image-fullscreen'}>
         <div className={'center prompt-font-size dark-grey prompt-width'}>
           <div className={'center-content min-height'}>
